@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Movies</string>
+    <string name="username">username</string>
+    <string name="password">password</string>
+    <string name="firstname">firstname</string>
+    <string name="lastname">lastname</string>
+    <string name="email">email</string>
+    <string name="profile">Profile</string>
+    <string name="Settings">Settings</string>
+    <string name="Movies">Movies</string>
+    <string name="Stars">Stars</string>
+    <string name="Kevin_Rados">Kevin_Rados</string>
+
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/design_default_color_primary</item>
+        <item name="colorPrimaryDark">@color/design_default_color_primary_dark</item>
+    </style>
+</resources>
