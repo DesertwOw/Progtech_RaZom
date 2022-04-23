@@ -2,32 +2,31 @@ package com.movies;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.button.MaterialButton;
-import com.google.android.material.textfield.TextInputEditText;
 import com.vishnusivadas.advanced_httpurlconnection.PutData;
 
 public class Register extends AppCompatActivity {
 
 
+    @SuppressLint("RestrictedApi")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        TextView username =(TextView) findViewById(R.id.username);
-        TextView passwd = (TextView) findViewById(R.id.password);
-        TextView first_name = (TextView) findViewById(R.id.first_name);
-        TextView last_name = (TextView) findViewById(R.id.last_name);
-        TextView email = (TextView) findViewById(R.id.email);
+        TextView username =(TextView) findViewById(R.id.p_username);
+        TextView passwd = (TextView) findViewById(R.id.p_password);
+        TextView first_name = (TextView) findViewById(R.id.p_first_name);
+        TextView last_name = (TextView) findViewById(R.id.p_last_name);
+        TextView email = (TextView) findViewById(R.id.p_email);
 
         MaterialButton registerbtn = (MaterialButton) findViewById(R.id.registerbtn);
 
@@ -35,11 +34,11 @@ public class Register extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String username, passwd, first_name, last_name, email;
-                username = String.valueOf(((TextView) findViewById(R.id.username)).getText());
-                passwd = String.valueOf(((TextView) findViewById(R.id.password)).getText());
-                first_name = String.valueOf(((TextView) findViewById(R.id.first_name)).getText());
-                last_name = String.valueOf(((TextView) findViewById(R.id.last_name)).getText());
-                email = String.valueOf(((TextView) findViewById(R.id.email)).getText());
+                username = String.valueOf(((TextView) findViewById(R.id.p_username)).getText());
+                passwd = String.valueOf(((TextView) findViewById(R.id.p_password)).getText());
+                first_name = String.valueOf(((TextView) findViewById(R.id.p_first_name)).getText());
+                last_name = String.valueOf(((TextView) findViewById(R.id.p_last_name)).getText());
+                email = String.valueOf(((TextView) findViewById(R.id.p_email)).getText());
 
                 if(!username.equals("") && !passwd.equals("") && !first_name.equals("") && !last_name.equals("") && !email.equals("")) {
                     Handler handler = new Handler();
@@ -58,7 +57,7 @@ public class Register extends AppCompatActivity {
                             data[2] = first_name;
                             data[3] = last_name;
                             data[4] = email;
-                            PutData putData = new PutData("http://192.168.1.199/Mobile_API/signup.php", "POST", field, data);
+                            PutData putData = new PutData("http://192.168.0.172/Mobile_API/signup.php", "POST", field, data);
                             //cmd -> ipconfig -> ipv4 address
                             if (putData.startPut()) {
                                 if (putData.onComplete()) {
@@ -82,5 +81,6 @@ public class Register extends AppCompatActivity {
                 }
             }
         });
+
     }
 }

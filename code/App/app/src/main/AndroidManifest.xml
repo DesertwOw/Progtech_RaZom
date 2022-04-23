@@ -11,6 +11,18 @@
         android:theme="@style/Theme.Movies"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".Stars"
+            android:exported="false" />
+        <activity
+            android:name=".Movies"
+            android:exported="false" />
+        <activity
+            android:name=".Settings"
+            android:exported="false" />
+        <activity
+            android:name=".Profile"
+            android:exported="false" />
+        <activity
             android:name=".Main_menu"
             android:exported="false" />
         <activity
