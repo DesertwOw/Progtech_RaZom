@@ -66,6 +66,17 @@ class DataBase
         } else return false;
     }
 
+    function addMovie($table, $movie_name, $movie_length)
+    {
+        $movie_name = $this->prepareData($movie_name);
+        $movie_length = prepareData($movie_length);
+        $this->sql =
+            "INSERT INTO ". $table . "(movie_name, movie_length) VALUES ('". $movie_name . "'.'" . $movie_length . "')";
+        if (mysqli_query($this->connect, $this->sql)){
+            return true;
+        } else return false;
+    }
+
 }
 
 ?>
