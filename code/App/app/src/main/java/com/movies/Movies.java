@@ -27,6 +27,17 @@ public class Movies extends AppCompatActivity {
         TextView movieName =(TextView) findViewById(R.id.moviename);
         TextView length = (TextView) findViewById(R.id.length);
 
+        MaterialButton backbtn = (MaterialButton) findViewById(R.id.backbtn);
+
+        backbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), Main_menu.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
         MaterialButton addmoviebtn = (MaterialButton) findViewById(R.id.addmoviebtn);
 
         addmoviebtn.setOnClickListener(new View.OnClickListener() {

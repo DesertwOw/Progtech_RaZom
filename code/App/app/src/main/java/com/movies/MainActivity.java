@@ -28,29 +28,8 @@ public class MainActivity extends AppCompatActivity {
 
         MaterialButton loginbtn = (MaterialButton) findViewById(R.id.loginbtn);
         MaterialButton registerbtn = (MaterialButton) findViewById(R.id.registerbtn);
-        MaterialButton darkmodebtn = (MaterialButton) findViewById(R.id.darkmodebtn);
 
         //admin
-
-        //Demo night mode
-        SharedPreferences appSettingPrefs = getSharedPreferences("AppSettingPrefs", 0);
-        SharedPreferences.Editor sharedPrefsEdit = appSettingPrefs.edit();
-        Boolean isNightModeOn  = appSettingPrefs.getBoolean("NightMode", false);
-
-        if(isNightModeOn){
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-            darkmodebtn.setText("Dark Mode Off");
-
-        }else{
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-            darkmodebtn.setText("Dark Mode On");
-        }
-
-
-
-        //demo night mode end
-
-
 
         loginbtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
                             data[0] = username;
                             data[1] = passwd;
 
-                            PutData putData = new PutData("http://192.168.1.199/Mobile_API/login.php", "POST", field, data);
+                            PutData putData = new PutData("http://192.168.0.172/Mobile_API/login.php", "POST", field, data);
                             //cmd -> ipconfig -> ipv4 address
                             if (putData.startPut()) {
                                 if (putData.onComplete()) {
@@ -105,24 +84,5 @@ public class MainActivity extends AppCompatActivity {
                 registerbtn.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), Register.class)));
             }
         });
-        //DarkMode demo
-        darkmodebtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(isNightModeOn) {
-                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-                    sharedPrefsEdit.putBoolean("NightMode", false);
-                    sharedPrefsEdit.apply();
-                    darkmodebtn.setText("Dark Mode On");
-                }else{
-                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-                    sharedPrefsEdit.putBoolean("NightMode", true);
-                    sharedPrefsEdit.apply();
-                    darkmodebtn.setText("Dark Mode Off");
-                }
-            }
-        });
-        //Dark mode demo end
-
     }
 }

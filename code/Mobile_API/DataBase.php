@@ -66,6 +66,21 @@ class DataBase
         } else return false;
     }
 
+    function modifyProfile($table, $id, $username, $passwd, $first_name, $last_name, $email){
+        $id = $this->prepareData($id);
+        $username = $this->prepareData($username);
+        $passwd = $this->prepareData($passwd);
+        $first_name = $this->prepareData($first_name);
+        $last_name = $this->prepareData($last_name);       
+        $email = $this->prepareData($email);
+        $this->sql =
+            "UPDATE" . $table . " SET username = '" . $username . "', passwd = '" . $passwd . "', first_name = '" . $first_name . "', last_name = '" . $last_name . "', email = '" . $email . "' WHERE id = '" . $id . "';";
+        if (mysqli_query($this->connect, $this->sql)) {
+            return true;
+        } else return false;
+
+    }
+
     function addMovie($table, $movie_name, $movie_length)
     {
         $movie_name = $this->prepareData($movie_name);

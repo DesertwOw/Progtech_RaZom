@@ -3,6 +3,7 @@ package com.movies;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
@@ -15,10 +16,20 @@ public class Settings extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
+
+        MaterialButton backbtn = (MaterialButton) findViewById(R.id.backbtn);
+
+        backbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), Main_menu.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
         MaterialButton darkmodebtn = (MaterialButton) findViewById(R.id.darkmodebtn);
 
-
-        //Demo night mode mainActiviytbe ez a rész kell h elmentse és feismerje h darkmodeban van e vagy sem
         SharedPreferences appSettingPrefs = getSharedPreferences("AppSettingPrefs", 0);
         SharedPreferences.Editor sharedPrefsEdit = appSettingPrefs.edit();
         Boolean isNightModeOn  = appSettingPrefs.getBoolean("NightMode", false);
@@ -32,12 +43,6 @@ public class Settings extends AppCompatActivity {
             darkmodebtn.setText("Dark Mode On");
         }
 
-
-
-        //demo night mode end
-
-
-//DarkMode demo
         darkmodebtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -54,6 +59,5 @@ public class Settings extends AppCompatActivity {
                 }
             }
         });
-        //Dark mode demo end
     }
 }

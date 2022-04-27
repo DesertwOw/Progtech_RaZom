@@ -54,7 +54,7 @@
         android:textColorHint="@color/white" />
 
     <EditText
-        android:id="@id/p_first_name"
+        android:id="@+id/p_first_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/p_password"
@@ -68,7 +68,7 @@
         android:textColorHint="@color/white" />
 
     <EditText
-        android:id="@id/p_last_name"
+        android:id="@+id/p_last_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/p_first_name"
@@ -82,7 +82,7 @@
         android:textColorHint="@color/white" />
 
     <EditText
-        android:id="@id/p_email"
+        android:id="@+id/p_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/p_last_name"
