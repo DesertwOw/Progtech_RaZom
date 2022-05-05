@@ -39,7 +39,7 @@ public class Profile extends AppCompatActivity {
                 last_name = String.valueOf(((TextView) findViewById(R.id.last_name)).getText());
                 email = String.valueOf(((TextView) findViewById(R.id.email)).getText());
 
-               // if(!username.equals("") && !passwd.equals("") && !first_name.equals("") && !last_name.equals("") && !email.equals("")) {
+                if(!username.equals("") && !passwd.equals("") && !first_name.equals("") && !last_name.equals("") && !email.equals("")) {
                     Handler handler = new Handler();
                     handler.post(new Runnable() {
                         @Override
@@ -53,11 +53,11 @@ public class Profile extends AppCompatActivity {
                             field[5] = "email";
                             String[] data = new String[6];
                             data[0] = "1";
-                            data[1] = "balint05";
-                            data[2] = "2000";
-                            data[3] = "Bálint";
-                            data[4] = "Zombori";
-                            data[5] = "zbalint00@gmail.com";
+                            data[1] = username;
+                            data[2] = passwd;
+                            data[3] = first_name;
+                            data[4] = last_name;
+                            data[5] = email;
                             PutData putData = new PutData("http://192.168.0.172/Mobile_API/modify.php", "POST", field, data);
                             //cmd -> ipconfig -> ipv4 address
                             if (putData.startPut()) {
@@ -76,10 +76,10 @@ public class Profile extends AppCompatActivity {
                             }
                         }
                     });
-               // }
-               // else {
+                }
+                else {
                     //Toast.makeText(getApplicationContext(),"All fields are required!", Toast.LENGTH_SHORT).show();
-               // }
+                }
             }
         });
 
