@@ -10,6 +10,15 @@
     <string name="Movies">Movies</string>
     <string name="Stars">Stars</string>
     <string name="Kevin_Rados">Kevin_Rados</string>
+    <string-array name="Categorys">
+        <item>Action</item>
+        <item>Comedy</item>
+    </string-array>
+
+    <string-array name="Studios">
+        <item>UniversalPictures</item>
+        <item>Pixar</item>
+    </string-array>
 
     <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
         <item name="colorPrimary">@color/design_default_color_primary</item>
