@@ -4,11 +4,10 @@ Use movies;
 
 Create table Movie(
     movie_id int NOT NULL AUTO_INCREMENT,
+    movie_studio varchar(250) not null,
+    movie_category varchar(250) not null,
     movie_name varchar(250) not null ,
     movie_length INT not null,
-    oscar_received BOOLEAN not null,
-    best_actor_received BOOLEAN not null,
-    best_music_received BOOLEAN not null,
     PRIMARY KEY (movie_id)
 );
 
