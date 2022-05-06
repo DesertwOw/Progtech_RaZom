@@ -62,6 +62,22 @@
         android:layout_marginBottom="20dp"
         android:backgroundTint="@color/design_default_color_primary"
         android:text="Back" />
+
+    <Spinner
+        android:id="@+id/category_spinner"
+        android:layout_below="@id/backbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"/>
+
+    <Spinner
+        android:id="@+id/studio_spinner"
+        android:layout_below="@id/category_spinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"/>
+
+
 </RelativeLayout>
 
 

@@ -11,6 +11,9 @@
         android:theme="@style/Theme.Movies"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".ListMovies"
+            android:exported="false" />
+        <activity
             android:name=".Stars"
             android:exported="false" />
         <activity
