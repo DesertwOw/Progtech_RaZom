@@ -1,13 +1,17 @@
 package com.movies;
 
 public class Pixar extends Studio{
+
     @Override
-    public ActionMovie createActionMovie(String name, int length) {
-        return null;
+    public ActionMovie createActionMovie(String studio, String category, String name, int length) {
+        return new ActionMovie("UniversalPictures","Comedy","asdasd",123);
     }
 
     @Override
-    public ComedyMovie createComedyMovie() {
-        return new ComedyMovie("Üvegtigris",100);
+    public ComedyMovie createComedyMovie(String studio,String category, String name, int length) {
+        return new ComedyMovie("Pixar", "Comedy", "Üvegtigris",100);
     }
+
+
+
 }
