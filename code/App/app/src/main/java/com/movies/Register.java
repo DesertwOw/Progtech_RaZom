@@ -57,7 +57,7 @@ public class Register extends AppCompatActivity {
                             data[2] = first_name;
                             data[3] = last_name;
                             data[4] = email;
-                            PutData putData = new PutData("http://192.168.0.172/Mobile_API/signup.php", "POST", field, data);
+                            PutData putData = new PutData("http://192.168.1.199/Mobile_API/signup.php", "POST", field, data);
                             //cmd -> ipconfig -> ipv4 address
                             if (putData.startPut()) {
                                 if (putData.onComplete()) {
