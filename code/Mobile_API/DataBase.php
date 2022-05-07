@@ -107,6 +107,28 @@ class DataBase
         } else return false;
     }
 
+    function addActor($table, $name, $age, $gender)
+    {
+        $name = $this->prepareData($name);
+        $age = $this->prepareData($age);
+        $gender = $this->prepareData($gender);       
+        $this->sql =
+            "INSERT INTO " . $table . " (actor_name, actor_age, actor_gender) VALUES ('" . $name . "','" . $age . "','" . $gender . "')";
+        if (mysqli_query($this->connect, $this->sql)) {
+            return true;
+        } else return false;
+    }
+
+    function addDirector($table, $name)
+    {
+        $name = $this->prepareData($name);     
+        $this->sql =
+            "INSERT INTO " . $table . " (director_name) VALUES ('" . $name . "')";
+        if (mysqli_query($this->connect, $this->sql)) {
+            return true;
+        } else return false;
+    }
+
 }
 
 ?>
