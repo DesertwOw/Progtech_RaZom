@@ -46,10 +46,10 @@ public class List extends AppCompatActivity {
         tmoviecategory = (TextInputLayout) findViewById(R.id.tmoviecategory);
         tmoviename = (TextInputLayout) findViewById(R.id.tmoviename);
         tmovielength = (TextInputLayout) findViewById(R.id.tmovielength);
-        e_movie_studio = (EditText) findViewById(R.id.movie_studio);
-        e_movie_category = (EditText) findViewById(R.id.movie_category);
-        e_movie_name = (EditText) findViewById(R.id.movie_name);
-        e_movie_length = (EditText) findViewById(R.id.movie_length);
+        e_movie_studio = (EditText) findViewById(R.id.e_movie_studio);
+        e_movie_category = (EditText) findViewById(R.id.e_movie_category);
+        e_movie_name = (EditText) findViewById(R.id.e_movie_name);
+        e_movie_length = (EditText) findViewById(R.id.e_movie_length);
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, Config.showURL, new Response.Listener<String>() {
             @Override
