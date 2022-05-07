@@ -18,5 +18,10 @@
         android:icon="@drawable/stars"
         android:title="@string/Stars"/>
 
+    <item
+        android:id="@+id/menuListMovies"
+        android:icon="@drawable/movies"
+        android:title="List_movies"/>
+
 
 </menu>

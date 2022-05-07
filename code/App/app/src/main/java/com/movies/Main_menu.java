@@ -58,7 +58,7 @@ public class Main_menu extends AppCompatActivity {
                     finish();
 
                 }
-                else if(id == R.id.menuStars){
+                else if(id == R.id.menuStars) {
                     Toast.makeText(Main_menu.this, "Stars", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(Main_menu.this, Stars.class); //TODO
                     startActivity(intent);
