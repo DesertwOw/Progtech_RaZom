@@ -20,6 +20,11 @@
         <item>Pixar</item>
     </string-array>
 
+    <string-array name="Gender">
+        <item>Man</item>
+        <item>Woman</item>
+    </string-array>
+
     <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
         <item name="colorPrimary">@color/design_default_color_primary</item>
         <item name="colorPrimaryDark">@color/design_default_color_primary_dark</item>
