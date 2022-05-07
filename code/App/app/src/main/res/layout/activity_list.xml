@@ -1,9 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/background"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".List">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:gravity="center"
+        android:textSize="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:text="Show Data"
+        android:id="@+id/showdata"
+        android:layout_marginTop="50dp"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/movie_studio"
+        android:layout_below="@id/showdata"
+        android:textColor="@color/black"
+        android:ems="10"
+        android:padding="10dp"
+        tools:ignore="Deprecated"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/movie_category"
+        android:layout_below="@+id/movie_studio"
+        android:textColor="@color/black"
+        android:ems="10"
+        android:padding="10dp"
+        tools:ignore="Deprecated"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/movie_name"
+        android:layout_below="@id/movie_category"
+        android:textColor="@color/black"
+        android:ems="10"
+        android:padding="10dp"
+        tools:ignore="Deprecated"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/movie_length"
+        android:layout_below="@id/movie_name"
+        android:textColor="@color/black"
+        android:ems="10"
+        android:padding="10dp"
+        tools:ignore="Deprecated"/>
+
+</RelativeLayout>

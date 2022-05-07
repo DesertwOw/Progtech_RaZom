@@ -77,6 +77,22 @@
         android:layout_height="wrap_content"
         android:layout_margin="16dp"/>
 
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="25sp" />
+
+    <Button
+        android:id="@+id/btn_show"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/backbtn"
+        android:layout_marginTop="20dp"
+        android:layout_weight="1"
+        android:text="Show"
+        android:textColor="@android:color/white" />
+
 
 </RelativeLayout>
 

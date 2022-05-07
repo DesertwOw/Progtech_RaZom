@@ -17,7 +17,6 @@ import com.google.android.material.button.MaterialButton;
 import com.vishnusivadas.advanced_httpurlconnection.PutData;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class Movies extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
@@ -55,12 +54,23 @@ public class Movies extends AppCompatActivity implements AdapterView.OnItemSelec
 
 
         MaterialButton backbtn = (MaterialButton) findViewById(R.id.backbtn);
+        Button btnshow =  findViewById(R.id.btn_show);
 
         backbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), Main_menu.class);
                 startActivity(intent);
+                finish();
+            }
+        });
+
+        btnshow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent s = new Intent(getApplicationContext(), List.class);
+                s.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                startActivity(s);
                 finish();
             }
         });
@@ -127,8 +137,6 @@ public class Movies extends AppCompatActivity implements AdapterView.OnItemSelec
                     }
                 }
             });
-
-
     }
 
     @Override
