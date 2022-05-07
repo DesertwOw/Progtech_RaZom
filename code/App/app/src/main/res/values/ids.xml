@@ -3,4 +3,9 @@
     <item name="p_first_name" type="id"></item>
     <item name="p_last_name" type="id"></item>
     <item name="p_email" type="id"></item>
+    <item name="menuListMovies" type="id" />
+    <item name="tmoviestudio" type="id" />
+    <item name="tmoviecategory" type="id" />
+    <item name="tmoviename" type="id" />
+    <item name="tmovielength" type="id" />
 </resources>
