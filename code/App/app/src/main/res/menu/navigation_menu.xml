@@ -23,5 +23,15 @@
         android:icon="@drawable/movies"
         android:title="List_movies"/>
 
+    <item
+        android:id="@+id/menuActors"
+        android:icon="@drawable/profile"
+        android:title="Actors"/>
+
+    <item
+        android:id="@+id/menuDirectors"
+        android:icon="@drawable/profile"
+        android:title="Directors"/>
+
 
 </menu>

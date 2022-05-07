@@ -66,6 +66,22 @@ public class Main_menu extends AppCompatActivity {
 
                 }
 
+                else if(id == R.id.menuActors){
+                    Toast.makeText(Main_menu.this, "Actors", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(Main_menu.this, Actors.class); //TODO
+                    startActivity(intent);
+                    finish();
+
+                }
+
+                else if(id == R.id.menuDirectors){
+                    Toast.makeText(Main_menu.this, "Directros", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(Main_menu.this, Director.class); //TODO
+                    startActivity(intent);
+                    finish();
+
+                }
+
                 return true;
             }
         });
