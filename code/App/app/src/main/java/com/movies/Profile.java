@@ -58,7 +58,7 @@ public class Profile extends AppCompatActivity {
                             data[3] = first_name;
                             data[4] = last_name;
                             data[5] = email;
-                            PutData putData = new PutData("http://192.168.0.172/Mobile_API/modify.php", "POST", field, data);
+                            PutData putData = new PutData(Config.showURL + "modify.php", "POST", field, data);
                             //cmd -> ipconfig -> ipv4 address
                             if (putData.startPut()) {
                                 if (putData.onComplete()) {
