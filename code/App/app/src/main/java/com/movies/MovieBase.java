@@ -1,15 +1,16 @@
 package com.movies;
 
 public abstract class MovieBase {
-    public abstract String getActors();
-    private String actors;
+    private String studio;
+    private String category;
+    private String name;
+    private int length;
 
-    public abstract String getDirector();
-    private String director;
+    public abstract String getStudio();
 
-    public abstract int getRating();
-    private int rating;
+    public abstract String getCategory();
 
-    public abstract Movie_playedRole getPlayedRole();
-    private Movie_playedRole playedRole;
+    public abstract String getName();
+
+    public abstract int getLength();
 }

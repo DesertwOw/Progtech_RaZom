@@ -4,14 +4,22 @@ public class MovieDecoratorBase extends MovieBase{
     private MovieBase movie;
     public MovieDecoratorBase(MovieBase m){movie = m;}
     @Override
-    public String getActors() {return movie.getActors(); }
+    public String getStudio() {
+        return movie.getStudio();
+    }
 
     @Override
-    public String getDirector() {return movie.getDirector(); }
+    public String getCategory() {
+        return movie.getCategory();
+    }
 
     @Override
-    public int getRating() {return movie.getRating(); }
+    public String getName() {
+        return movie.getName();
+    }
 
     @Override
-    public Movie_playedRole getPlayedRole() {return movie.getPlayedRole(); }
+    public int getLength() {
+        return movie.getLength();
+    }
 }
