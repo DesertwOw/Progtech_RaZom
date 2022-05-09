@@ -34,6 +34,23 @@ public class ActionMovie extends Genres{
                 '!';
     }
 
+    @Override
+    public String getStudio() {
+        return studio;
+    }
 
+    @Override
+    public String getCategory() {
+        return category;
+    }
 
+    @Override
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public int getLength() {
+        return length;
+    }
 }
