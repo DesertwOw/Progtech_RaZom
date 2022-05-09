@@ -13,7 +13,7 @@
         android:theme="@style/Theme.Movies"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".Director"
+            android:name=".Directors"
             android:exported="false" />
         <activity
             android:name=".Actors"

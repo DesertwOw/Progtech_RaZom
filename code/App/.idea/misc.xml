@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Balint/App/app/src/main/res/drawable/darkmode_btn.xml" value="0.1" />
+        <entry key="..\:/Balint/App/app/src/main/res/layout/activity_actors.xml" value="0.11231884057971014" />
         <entry key="..\:/Balint/App/app/src/main/res/layout/activity_logged_profile" value="0.25416666666666665" />
         <entry key="..\:/Balint/App/app/src/main/res/layout/activity_logged_profile.xml" value="0.11614583333333334" />
         <entry key="..\:/Balint/App/app/src/main/res/layout/activity_main.xml" value="0.264" />
@@ -33,7 +34,6 @@
         <entry key="..\:/Egyetem2/Github/Progtech_RaZom/code/App/app/src/main/res/layout/layout_navigation_header.xml" value="0.358695652173913" />
         <entry key="..\:/Egyetem2/Github/Progtech_RaZom/code/App/app/src/main/res/layout/list_movies.xml" value="0.358695652173913" />
         <entry key="..\:/Egyetem2/Github/Progtech_RaZom/code/App/app/src/main/res/layout/movies_list.xml" value="0.358695652173913" />
-        <entry key="..\:/Egyetem2/Github/Progtech_RaZom/code/App/app/src/main/res/layout/singlerowdesign.xml" value="0.358695652173913" />
         <entry key="..\:/Egyetem2/Github/Progtech_RaZom/code/App/app/src/main/res/menu/navigation_menu.xml" value="0.36666666666666664" />
         <entry key="..\:/ProgTech_beadando/App/app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="..\:/ProgTech_beadando/App/app/src/main/res/layout/activity_main_menu.xml" value="0.358695652173913" />
