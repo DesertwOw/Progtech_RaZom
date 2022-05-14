@@ -21,16 +21,22 @@
         <entry key="..\:/Balint/uj/App/app/src/main/res/menu/navigation_menu.xml" value="0.1" />
         <entry key="..\:/Egyetem2/Github/Progtech_RaZom/code/App/app/src/main/res/drawable/ic_baseline_email_24.xml" value="0.2985" />
         <entry key="..\:/Egyetem2/Github/Progtech_RaZom/code/App/app/src/main/res/drawable/ic_baseline_menu_24.xml" value="0.196" />
+        <entry key="..\:/Egyetem2/Github/Progtech_RaZom/code/App/app/src/main/res/layout/activity_actors.xml" value="0.18802083333333333" />
+        <entry key="..\:/Egyetem2/Github/Progtech_RaZom/code/App/app/src/main/res/layout/activity_director.xml" value="0.18802083333333333" />
         <entry key="..\:/Egyetem2/Github/Progtech_RaZom/code/App/app/src/main/res/layout/activity_list.xml" value="0.358695652173913" />
         <entry key="..\:/Egyetem2/Github/Progtech_RaZom/code/App/app/src/main/res/layout/activity_list_movies.xml" value="0.18802083333333333" />
+        <entry key="..\:/Egyetem2/Github/Progtech_RaZom/code/App/app/src/main/res/layout/activity_listed_movies_from_database.xml" value="0.35260416666666666" />
         <entry key="..\:/Egyetem2/Github/Progtech_RaZom/code/App/app/src/main/res/layout/activity_main.xml" value="0.358695652173913" />
         <entry key="..\:/Egyetem2/Github/Progtech_RaZom/code/App/app/src/main/res/layout/activity_main_menu.xml" value="0.358695652173913" />
         <entry key="..\:/Egyetem2/Github/Progtech_RaZom/code/App/app/src/main/res/layout/activity_movies.xml" value="0.358695652173913" />
+        <entry key="..\:/Egyetem2/Github/Progtech_RaZom/code/App/app/src/main/res/layout/activity_profile.xml" value="0.18802083333333333" />
         <entry key="..\:/Egyetem2/Github/Progtech_RaZom/code/App/app/src/main/res/layout/activity_register.xml" value="0.24954710144927536" />
         <entry key="..\:/Egyetem2/Github/Progtech_RaZom/code/App/app/src/main/res/layout/activity_settings.xml" value="0.358695652173913" />
         <entry key="..\:/Egyetem2/Github/Progtech_RaZom/code/App/app/src/main/res/layout/activity_stars.xml" value="0.358695652173913" />
         <entry key="..\:/Egyetem2/Github/Progtech_RaZom/code/App/app/src/main/res/layout/item_category.xml" value="0.358695652173913" />
+        <entry key="..\:/Egyetem2/Github/Progtech_RaZom/code/App/app/src/main/res/layout/layout.xml" value="0.358695652173913" />
         <entry key="..\:/Egyetem2/Github/Progtech_RaZom/code/App/app/src/main/res/layout/layout_navigation_header.xml" value="0.358695652173913" />
+        <entry key="..\:/Egyetem2/Github/Progtech_RaZom/code/App/app/src/main/res/layout/list.xml" value="0.358695652173913" />
         <entry key="..\:/Egyetem2/Github/Progtech_RaZom/code/App/app/src/main/res/layout/list_movies.xml" value="0.358695652173913" />
         <entry key="..\:/Egyetem2/Github/Progtech_RaZom/code/App/app/src/main/res/layout/movies_list.xml" value="0.358695652173913" />
         <entry key="..\:/Egyetem2/Github/Progtech_RaZom/code/App/app/src/main/res/layout/singlerowdesign.xml" value="0.358695652173913" />
