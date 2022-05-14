@@ -58,6 +58,13 @@ public class Main_menu extends AppCompatActivity {
                     finish();
 
                 }
+                else if(id == R.id.menuListMovies){
+                    Toast.makeText(Main_menu.this, "Movies", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(Main_menu.this, Listed_movies_from_database.class); //TODO
+                    startActivity(intent);
+                    finish();
+
+                }
                 else if(id == R.id.menuStars) {
                     Toast.makeText(Main_menu.this, "Stars", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(Main_menu.this, Stars.class); //TODO
