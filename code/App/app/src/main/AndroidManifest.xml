@@ -13,7 +13,11 @@
         android:theme="@style/Theme.Movies"
         android:usesCleartextTraffic="true">
         <activity
+<<<<<<< HEAD
             android:name=".Listed_movies_from_database"
+=======
+            android:name=".Directors"
+>>>>>>> main
             android:exported="false" />
         <activity
             android:name=".Director"

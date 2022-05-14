@@ -83,7 +83,7 @@ public class Main_menu extends AppCompatActivity {
 
                 else if(id == R.id.menuDirectors){
                     Toast.makeText(Main_menu.this, "Directros", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(Main_menu.this, Director.class); //TODO
+                    Intent intent = new Intent(Main_menu.this, Directors.class); //TODO
                     startActivity(intent);
                     finish();
 

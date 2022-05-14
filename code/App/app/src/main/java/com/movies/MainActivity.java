@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
                             data[0] = username;
                             data[1] = passwd;
 
-                            PutData putData = new PutData("http://192.168.1.199/Mobile_API/login.php", "POST", field, data);
+                            PutData putData = new PutData(Config.showURL + "login.php", "POST", field, data);
                             //cmd -> ipconfig -> ipv4 address
                             if (putData.startPut()) {
                                 if (putData.onComplete()) {
