@@ -109,15 +109,16 @@ public class Movies extends AppCompatActivity implements AdapterView.OnItemSelec
                                 String[] data = new String[4];
                                 data[0] = studio_spinner.getSelectedItem().toString();
                                 data[1] = category_spinner.getSelectedItem().toString();
-<<<<<<< HEAD
+
                                 data[2] = movieName.getText().toString();
                                 data[3] = length.getText().toString();
                                 PutData putData = new PutData("http://192.168.1.199/Mobile_API/Add_movie.php", "POST", field, data);
-=======
+
+                                /*
                                 data[2] = movieName.toString();
                                 data[3] = length.toString();
                                 PutData putData = new PutData(Config.showURL + "Add_movie.php", "POST", field, data);
->>>>>>> main
+*/
                                 //cmd -> ipconfig -> ipv4 address
                                 if (putData.startPut()) {
                                     if (putData.onComplete()) {
