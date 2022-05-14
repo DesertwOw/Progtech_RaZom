@@ -54,7 +54,7 @@ public class Movies extends AppCompatActivity implements AdapterView.OnItemSelec
 
 
         MaterialButton backbtn = (MaterialButton) findViewById(R.id.backbtn);
-        Button btnshow =  findViewById(R.id.btn_show);
+
 
         backbtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,15 +65,6 @@ public class Movies extends AppCompatActivity implements AdapterView.OnItemSelec
             }
         });
 
-        btnshow.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent s = new Intent(getApplicationContext(), List.class);
-                s.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
-                startActivity(s);
-                finish();
-            }
-        });
 
         MaterialButton addmoviebtn = (MaterialButton) findViewById(R.id.addmoviebtn);
 
@@ -114,8 +105,8 @@ public class Movies extends AppCompatActivity implements AdapterView.OnItemSelec
                                 String[] data = new String[4];
                                 data[0] = studio_spinner.getSelectedItem().toString();
                                 data[1] = category_spinner.getSelectedItem().toString();
-                                data[2] = movieName.toString();
-                                data[3] = length.toString();
+                                data[2] = movieName.getText().toString();
+                                data[3] = length.getText().toString();
                                 PutData putData = new PutData("http://192.168.1.199/Mobile_API/Add_movie.php", "POST", field, data);
                                 //cmd -> ipconfig -> ipv4 address
                                 if (putData.startPut()) {
