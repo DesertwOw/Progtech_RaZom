@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.movies">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -13,15 +14,14 @@
         android:theme="@style/Theme.Movies"
         android:usesCleartextTraffic="true">
         <activity
-<<<<<<< HEAD
             android:name=".Listed_movies_from_database"
-=======
-            android:name=".Directors"
->>>>>>> main
             android:exported="false" />
+
         <activity
             android:name=".Director"
-            android:exported="false" />
+            android:exported="false"
+            tools:ignore="Instantiatable" />
+
         <activity
             android:name=".Actors"
             android:exported="false" />
