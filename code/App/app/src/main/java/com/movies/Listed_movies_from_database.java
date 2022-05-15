@@ -1,8 +1,15 @@
 package com.movies;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.StrictMode;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.RatingBar;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -19,9 +26,10 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.List;
 
+
 public class Listed_movies_from_database extends AppCompatActivity {
 
-    String urladdress = "http://192.168.1.199/Mobile_API/fetch_movies.php";
+    String urladdress = "http://192.168.1.199/Mobile_API/fetch_movie.php";
     String[] movie_studio;
     String[] movie_category;
     String[] movie_name;
@@ -31,17 +39,20 @@ public class Listed_movies_from_database extends AppCompatActivity {
     String line = null;
     String result = null;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_listed_movies_from_database);
 
-        listView = (ListView) findViewById(R.id.lvMovies);
+        listView=(ListView) findViewById(R.id.lvMovies);
 
-        StrictMode.setThreadPolicy((new StrictMode.ThreadPolicy.Builder().permitNetwork().build()));
+        StrictMode.setThreadPolicy((new  StrictMode.ThreadPolicy.Builder().permitNetwork().build()));
         collectData();
-        CustomListView customListView = new CustomListView(this, movie_studio, movie_category, movie_name, movie_length);
+        CustomListView customListView = new CustomListView(this,movie_studio,movie_category,movie_name,movie_length);
         listView.setAdapter(customListView);
+
     }
 
     private void collectData()
@@ -88,5 +99,4 @@ public class Listed_movies_from_database extends AppCompatActivity {
             e.printStackTrace();
         }
     }
-
 }

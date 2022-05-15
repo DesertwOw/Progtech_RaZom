@@ -7,61 +7,9 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-<<<<<<< HEAD:code/App/app/src/main/res/layout/activity_listed_movies_from_database.xml
     <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/lvMovies"/>
-
-=======
-    <TextView
-        android:gravity="center"
-        android:textSize="30dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="@color/black"
-        android:text="Show Data"
-        android:id="@+id/showdata"
-        android:layout_marginTop="50dp"/>
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/e_movie_studio"
-        android:layout_below="@id/showdata"
-        android:textColor="@color/black"
-        android:ems="10"
-        android:padding="10dp"
-        tools:ignore="Deprecated"/>
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/e_movie_category"
-        android:layout_below="@+id/e_movie_studio"
-        android:textColor="@color/black"
-        android:ems="10"
-        android:padding="10dp"
-        tools:ignore="Deprecated"/>
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/e_movie_name"
-        android:layout_below="@id/e_movie_category"
-        android:textColor="@color/black"
-        android:ems="10"
-        android:padding="10dp"
-        tools:ignore="Deprecated"/>
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/e_movie_length"
-        android:layout_below="@id/e_movie_name"
-        android:textColor="@color/black"
-        android:ems="10"
-        android:padding="10dp"
-        tools:ignore="Deprecated"/>
->>>>>>> main:code/App/app/src/main/res/layout/activity_list.xml
 
 </RelativeLayout>
