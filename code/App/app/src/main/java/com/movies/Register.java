@@ -6,6 +6,7 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -15,12 +16,21 @@ import com.vishnusivadas.advanced_httpurlconnection.PutData;
 
 public class Register extends AppCompatActivity {
 
+    final String REGISTERBUTTON = "Button created";
+    final String REGISTERLAYER = "Layer loaded";
+    final String UPLOADGOOD = "Good data upload";
+    final String UPLOADBAD = "Bad data upload";
+    final String GOODREQ = "Good request handled";
+    final String BADREQ = "Bad request handled";
+
+
 
     @SuppressLint("RestrictedApi")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+        Log.i(REGISTERLAYER,"Register layer loaded successfully!");
 
         TextView username =(TextView) findViewById(R.id.p_username);
         TextView passwd = (TextView) findViewById(R.id.p_password);
@@ -29,6 +39,7 @@ public class Register extends AppCompatActivity {
         TextView email = (TextView) findViewById(R.id.p_email);
 
         MaterialButton registerbtn = (MaterialButton) findViewById(R.id.registerbtn);
+        Log.i(REGISTERBUTTON,"Register button created successfully!");
 
         registerbtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,6 +69,7 @@ public class Register extends AppCompatActivity {
                             data[3] = last_name;
                             data[4] = email;
                             PutData putData = new PutData(Config.showURL + "signup.php", "POST", field, data);
+                            Log.i(GOODREQ,"Good request handled to the server");
                             //cmd -> ipconfig -> ipv4 address
                             if (putData.startPut()) {
                                 if (putData.onComplete()) {
@@ -67,9 +79,11 @@ public class Register extends AppCompatActivity {
                                         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                                         startActivity(intent);
                                         finish();
+                                        Log.i(UPLOADGOOD,"Data uploaded successfully!");
                                     }
                                     else {
                                         Toast.makeText(getApplicationContext(), result,Toast.LENGTH_SHORT).show();
+                                        Log.i(UPLOADBAD,"Data upload encountered some problems");
                                     }
                                 }
                             }
@@ -78,6 +92,7 @@ public class Register extends AppCompatActivity {
                 }
                 else {
                     Toast.makeText(getApplicationContext(),"All fields are required!", Toast.LENGTH_SHORT).show();
+                    Log.i(BADREQ,"Bad request handled to the server");
                 }
             }
         });
