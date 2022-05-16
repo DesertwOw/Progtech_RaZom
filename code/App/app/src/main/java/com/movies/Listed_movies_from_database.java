@@ -3,6 +3,7 @@ package com.movies;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.StrictMode;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -39,6 +40,14 @@ public class Listed_movies_from_database extends AppCompatActivity {
     String line = null;
     String result = null;
 
+    final String FETCHG = "Fetch request good";
+    final String FETCHB = "Fetch request failed";
+    final String GETREQ = "Get request started";
+    final String BADGETREQ = "Get request failed";
+    final String LISTVIEW = "List view created";
+    final String JSONENCODE = "Json encoded succesfuly";
+    final String JSONFAIL = "Failed the encoding";
+
 
 
     @Override
@@ -47,6 +56,8 @@ public class Listed_movies_from_database extends AppCompatActivity {
         setContentView(R.layout.activity_listed_movies_from_database);
 
         listView=(ListView) findViewById(R.id.lvMovies);
+
+        Log.i(LISTVIEW,"Creation successfull");
 
         StrictMode.setThreadPolicy((new  StrictMode.ThreadPolicy.Builder().permitNetwork().build()));
         collectData();
@@ -62,8 +73,10 @@ public class Listed_movies_from_database extends AppCompatActivity {
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
             con.setRequestMethod("GET");
             is = new BufferedInputStream(con.getInputStream());
+            Log.i(GETREQ,"Request started");
         } catch (Exception ex) {
             ex.printStackTrace();
+            Log.e(BADGETREQ,"Request failed");
         }
         try
         {
@@ -74,10 +87,12 @@ public class Listed_movies_from_database extends AppCompatActivity {
             }
             is.close();
             result=sb.toString();
+            Log.i(FETCHG,"Fetch finished");
         }
         catch (Exception e)
         {
             e.printStackTrace();
+            Log.e(FETCHB,"Fetch failed");
         }
 
         try{
@@ -94,9 +109,12 @@ public class Listed_movies_from_database extends AppCompatActivity {
                 movie_category[i] = jo.getString("movie_category");
                 movie_name[i] = jo.getString("movie_name");
                 movie_length[i] = jo.getString("movie_length");
+
+                Log.i(JSONENCODE,"Data loaded");
             }
         } catch (JSONException e) {
             e.printStackTrace();
+            Log.e(JSONFAIL,"Data load failed");
         }
     }
 }
