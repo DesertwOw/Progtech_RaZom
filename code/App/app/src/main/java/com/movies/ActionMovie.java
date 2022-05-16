@@ -1,5 +1,6 @@
 package com.movies;
 
+import android.util.Log;
 import android.widget.Spinner;
 
 import java.util.ArrayList;
@@ -17,6 +18,7 @@ public class ActionMovie extends Genres{
         this.category = category;
         this.name = name;
         this.length = length;
+
     }
 
     @Override

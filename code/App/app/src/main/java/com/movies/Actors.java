@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -20,6 +21,20 @@ import java.util.List;
 
 
 public class Actors extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+
+    final String ACTORSLAYOUT = "Actors layout loading";
+    final String PlAYEDROLESPIN = "P_r spinner load";
+    final String MOVIESLIST = "Movies list inc";
+    final String MOVIESPINNER = "Movie spinner loading";
+    final String ACTORGENDERSPINNER = "A_g spinner load";
+    final String ADDBTN = "Add_button set up";
+    final String BACKBTN = "Back_button set up";
+    final String MainMenuBack = "Heading back to";
+    final String UPLOADFUNCTION = "Upload function good";
+    final String UPLOADERROR = "Upload function bad";
+    final String GOODREQ = "Request handled well";
+    final String BADREQ = "Request handled badly";
+
 
     private Spinner movie_spinner;
     private Spinner playedRole_spinner;
@@ -40,26 +55,33 @@ public class Actors extends AppCompatActivity implements AdapterView.OnItemSelec
         playedRole_spinner.setAdapter(playedRole);
         playedRole_spinner.setOnItemSelectedListener(this);
 
+        Log.i(ACTORSLAYOUT,"Actors layout set up successfully");
+        Log.i(PlAYEDROLESPIN,"Played_role spinner set up successfully");
+
         //TODO Movie neveket arrayba szedni is a spinner listával kiiratni
         for (int i = 0; i < Container.Movies.size(); i++){
             String name = Container.Movies.get(i).getName();
             m.add(name);
+            Log.i(MOVIESLIST,"Movies List filled with data");
         }
         movie_spinner = findViewById(R.id.movie_spinner);
         ArrayAdapter<String> movie = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, m);
         movie.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         movie_spinner.setAdapter(movie);
         movie_spinner.setOnItemSelectedListener(this);
+        Log.i(MOVIESPINNER,"Movies spinner set up successfully");
 
         actorGender_spinner = findViewById(R.id.actorGender_spinner);
         ArrayAdapter<CharSequence> gender = ArrayAdapter.createFromResource(this,R.array.Gender, android.R.layout.simple_spinner_dropdown_item);
         gender.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         actorGender_spinner.setAdapter(gender);
         actorGender_spinner.setOnItemSelectedListener(this);
+        Log.i(ACTORGENDERSPINNER,"Actors_spinner set up successfully");
 
         MaterialButton addbtn = (MaterialButton) findViewById(R.id.addactorbtn);
-
+        Log.i(ADDBTN,"Add button created");
         MaterialButton backbtn = (MaterialButton) findViewById(R.id.backbtn);
+        Log.i(BACKBTN, "Back button created");
 
         backbtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,6 +89,7 @@ public class Actors extends AppCompatActivity implements AdapterView.OnItemSelec
                 Intent intent = new Intent(getApplicationContext(), Main_menu.class);
                 startActivity(intent);
                 finish();
+                Log.i(MainMenuBack,"Sent back to main menu successfully");
             }
         });
 
@@ -103,6 +126,7 @@ public class Actors extends AppCompatActivity implements AdapterView.OnItemSelec
                             data[1] = age;
                             data[2] = gender;
                             PutData putData = new PutData(Config.showURL + "addActor.php", "POST", field, data);
+                            Log.i(GOODREQ,"Request to the server is good");
                             //cmd -> ipconfig -> ipv4 address
                             if (putData.startPut()) {
                                 if (putData.onComplete()) {
@@ -112,9 +136,11 @@ public class Actors extends AppCompatActivity implements AdapterView.OnItemSelec
                                         Intent intent = new Intent(getApplicationContext(), Main_menu.class);
                                         startActivity(intent);
                                         finish();
+                                        Log.i(UPLOADFUNCTION,"Upload function is working properly");
                                     }
                                     else {
                                         Toast.makeText(getApplicationContext(), result,Toast.LENGTH_SHORT).show();
+                                        Log.e(UPLOADERROR,"Upload function encountered errors");
                                     }
                                 }
                             }
@@ -123,6 +149,7 @@ public class Actors extends AppCompatActivity implements AdapterView.OnItemSelec
                 }
                 else {
                     Toast.makeText(getApplicationContext(),"All fields are required! Age has to be a number", Toast.LENGTH_SHORT).show();
+                    Log.e(BADREQ,"Bad request handled to the server");
                 }
 
             }
