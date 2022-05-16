@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -28,14 +29,36 @@ public class Movies extends AppCompatActivity implements AdapterView.OnItemSelec
     private Spinner category_spinner;
     private Spinner studio_spinner;
 
+    final String ACTIVITYMOVIES = "Activity loaded";
+    final String UNIVERSALSTUDIO = "Universal studiocreated";
+    final String PIXARSTUDIO = "Pixar studio created";
+    final String ACTIONMOVIE = "Action movie created";
+    final String COMEDYMOVIE = "Comedy movie created";
+    final String CATEGORYSPINNER = "Category spinner inc";
+    final String STUDIOSPINNER = "Studio spinner created";
+    final String BACKBTN = "Button created";
+    final String BACKTOMAINMENU = "Handled back to menu";
+    final String ADDMOVIEBTN = "Button created";
+    final String GOODREQ = "Good request handled";
+    final String BADREQ  = "Bad request handled";
+    final String GOODUPLOAD = "Files uploaded!";
+    final String BADUPLOAD = "Files not uploaded";
+    final String ITEMSELECTION = "Item selected";
+    final String MOVIECREATED = "Movie created";
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movies);
 
+        Log.i(ACTIVITYMOVIES,"Movies Activity xml loaded successfully!");
+
         universalPictures = new UniversalPictures();
+        Log.i(UNIVERSALSTUDIO,"Universal Pictures created");
         Pixar = new Pixar();
+        Log.i(PIXARSTUDIO,"Pixar created");
         TextView movieName =(TextView) findViewById(R.id.moviename);
         TextView length = (TextView) findViewById(R.id.length);
 
@@ -44,17 +67,19 @@ public class Movies extends AppCompatActivity implements AdapterView.OnItemSelec
         category.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         category_spinner.setAdapter(category);
         category_spinner.setOnItemSelectedListener(this);
+        Log.i(CATEGORYSPINNER,"Category spinner incremented successfully!");
 
         studio_spinner = findViewById(R.id.studio_spinner);
         ArrayAdapter<CharSequence> studio = ArrayAdapter.createFromResource(this,R.array.Studios, android.R.layout.simple_spinner_dropdown_item);
         category.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         studio_spinner.setAdapter(studio);
         studio_spinner.setOnItemSelectedListener(this);
+        Log.i(STUDIOSPINNER, "Studio spinner created successfully!");
 
 
 
         MaterialButton backbtn = (MaterialButton) findViewById(R.id.backbtn);
-
+        Log.i(BACKBTN, "Back button created successfully!");
 
         backbtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,38 +87,51 @@ public class Movies extends AppCompatActivity implements AdapterView.OnItemSelec
                 Intent intent = new Intent(getApplicationContext(), Main_menu.class);
                 startActivity(intent);
                 finish();
+                Log.i(BACKTOMAINMENU,"Back to main menu intent handled");
             }
         });
 
 
         MaterialButton addmoviebtn = (MaterialButton) findViewById(R.id.addmoviebtn);
+        Log.i(ADDMOVIEBTN,"Add movie button created succsesfully!");
 
             addmoviebtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     if (studio_spinner.getSelectedItem().toString().trim().equals("UniversalPictures"))
                     {
+                        Log.i(UNIVERSALSTUDIO, "Universal Studio picked during the movie creation");
                         if(category_spinner.getSelectedItem().toString().trim().equals("Comedy"))
                         {
+                            Log.i(COMEDYMOVIE,"Comedy movie category picked during the movie creation");
                             comedyMovie = universalPictures.createComedyMovie(studio_spinner.getSelectedItem().toString(),category_spinner.getSelectedItem().toString(),movieName.getText().toString(),Integer.parseInt(length.getText().toString()));
                             Container.Movies.add(comedyMovie);
+                            Log.i(MOVIECREATED, "Movie created by the given data");
                         }
                         else
                         {
                             actionMovie = universalPictures.createActionMovie(studio_spinner.getSelectedItem().toString(),category_spinner.getSelectedItem().toString(),movieName.getText().toString(),Integer.parseInt(length.getText().toString()));
                             Container.Movies.add(actionMovie);
+                            Log.i(UNIVERSALSTUDIO, "Universal Studio picked during the movie creation");
+                            Log.i(ACTIONMOVIE, "Action movie category picked during the movie creation");
+                            Log.i(MOVIECREATED, "Movie created by the given data");
                         }
                     } else if (studio_spinner.getSelectedItem().toString().trim().equals("Pixar"))
+                        Log.i(PIXARSTUDIO, "Pixar Studio picked during the movie creation");
                     {
                         if (category_spinner.getSelectedItem().toString().trim().equals("Comedy"))
                         {
+                            Log.i(COMEDYMOVIE,"Comedy movie category picked during the movie creation");
                             comedyMovie = Pixar.createComedyMovie(studio_spinner.getSelectedItem().toString(), category_spinner.getSelectedItem().toString(), movieName.getText().toString(), Integer.parseInt(length.getText().toString()));
                             Container.Movies.add(comedyMovie);
+                            Log.i(MOVIECREATED, "Movie created by the given data");
                         }
                         else
                         {
                             actionMovie = Pixar.createActionMovie(studio_spinner.getSelectedItem().toString(), category_spinner.getSelectedItem().toString(), movieName.getText().toString(), Integer.parseInt(length.getText().toString()));
                             Container.Movies.add(actionMovie);
+                            Log.i(ACTIONMOVIE,"Action movie category picked during the movie creation");
+                            Log.i(MOVIECREATED, "Movie created by the given data");
                         }
                     }
                     if(!movieName.equals("") && !length.equals("")) {
@@ -109,16 +147,10 @@ public class Movies extends AppCompatActivity implements AdapterView.OnItemSelec
                                 String[] data = new String[4];
                                 data[0] = studio_spinner.getSelectedItem().toString();
                                 data[1] = category_spinner.getSelectedItem().toString();
-
                                 data[2] = movieName.getText().toString();
                                 data[3] = length.getText().toString();
                                 PutData putData = new PutData("http://192.168.1.199/Mobile_API/Add_movie.php", "POST", field, data);
-
-                                /*
-                                data[2] = movieName.toString();
-                                data[3] = length.toString();
-                                PutData putData = new PutData(Config.showURL + "Add_movie.php", "POST", field, data);
-*/
+                                Log.i(GOODREQ,"Good request handled to the server");
                                 //cmd -> ipconfig -> ipv4 address
                                 if (putData.startPut()) {
                                     if (putData.onComplete()) {
@@ -128,14 +160,17 @@ public class Movies extends AppCompatActivity implements AdapterView.OnItemSelec
                                             Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                                             startActivity(intent);
                                             finish();
+                                            Log.i(GOODUPLOAD,"Data uploaded successfully!");
                                         }
                                         else {
                                             Toast.makeText(getApplicationContext(), result,Toast.LENGTH_SHORT).show();
+                                            Log.i(BADUPLOAD,"Data upload encountered some problems");
                                         }
                                     }
                                 }
                             }
                         });
+                        Log.i(BADREQ,"Bad request handled to the server");
                     }
                 }
             });
@@ -145,6 +180,7 @@ public class Movies extends AppCompatActivity implements AdapterView.OnItemSelec
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
         String choice = adapterView.getItemAtPosition(i).toString();
         Toast.makeText(getApplicationContext(),choice,Toast.LENGTH_LONG).show();
+        Log.i(ITEMSELECTION,"Item selected");
     }
 
     @Override

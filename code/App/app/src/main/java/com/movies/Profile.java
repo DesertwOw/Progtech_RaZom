@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -14,10 +15,19 @@ import com.vishnusivadas.advanced_httpurlconnection.PutData;
 
 public class Profile extends AppCompatActivity {
 
+    final String MODIFYBTN = "Button created";
+    final String BACKBTN = "Button created";
+    final String PROFILELAYER = "Layer loaded";
+    final String UPLOADGOOD = "Good data upload";
+    final String UPLOADBAD = "Bad data upload";
+    final String GOODREQ = "Good request handled";
+    final String BADREQ = "Bad request handled";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
+        Log.i(PROFILELAYER,"Profile layer loaded successfully!");
 
         TextView userid = (TextView) findViewById(R.id.userid);
         TextView username =(TextView) findViewById(R.id.username);
@@ -27,7 +37,9 @@ public class Profile extends AppCompatActivity {
         TextView email = (TextView) findViewById(R.id.email);
 
         MaterialButton modifybtn = (MaterialButton) findViewById(R.id.modifybtn);
+        Log.i(MODIFYBTN,"Modify button created successfully!");
         MaterialButton backbtn = (MaterialButton) findViewById(R.id.backbtn);
+        Log.i(BACKBTN,"Back button created successfully!");
 
         modifybtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,6 +71,7 @@ public class Profile extends AppCompatActivity {
                             data[4] = last_name;
                             data[5] = email;
                             PutData putData = new PutData(Config.showURL + "modify.php", "POST", field, data);
+                            Log.i(GOODREQ,"Good request handled to the server");
                             //cmd -> ipconfig -> ipv4 address
                             if (putData.startPut()) {
                                 if (putData.onComplete()) {
@@ -68,9 +81,11 @@ public class Profile extends AppCompatActivity {
                                         Intent intent = new Intent(getApplicationContext(), Main_menu.class);
                                         startActivity(intent);
                                         finish();
+                                        Log.i(UPLOADGOOD,"Data uploaded successfully!");
                                     }
                                     else {
                                         Toast.makeText(getApplicationContext(), result,Toast.LENGTH_SHORT).show();
+                                        Log.i(UPLOADBAD,"Data upload encountered some problems");
                                     }
                                 }
                             }
@@ -78,7 +93,8 @@ public class Profile extends AppCompatActivity {
                     });
                 }
                 else {
-                    //Toast.makeText(getApplicationContext(),"All fields are required!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(),"All fields are required!", Toast.LENGTH_SHORT).show();
+                    Log.i(BADREQ,"Bad request handled to the server");
                 }
             }
         });

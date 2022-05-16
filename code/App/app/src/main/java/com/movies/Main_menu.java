@@ -6,7 +6,9 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
@@ -15,20 +17,28 @@ import com.google.android.material.navigation.NavigationView;
 
 public class Main_menu extends AppCompatActivity {
 
+    final String ActivityLoad = "Main menu xml loaded";
+    final String ImageMenuLoad = "Image menu xml loaded";
+    final String DrawerLayoutLoad = "Drawer xml loaded";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
+        Log.i(ActivityLoad,"Main menu loaded Successfully");
 
         final DrawerLayout drawerLayout = findViewById(R.id.drawerLayout);
+
+        Log.i(DrawerLayoutLoad,"Drawer loaded Successfully");
 
         findViewById(R.id.imageMenu).setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
                 drawerLayout.openDrawer(GravityCompat.START);
             }
-        });
 
+        });
+        Log.i(ImageMenuLoad,"Image menu loaded Successfully");
         NavigationView navigationView = findViewById(R.id.navigationView);
         navigationView.setItemIconTintList(null);
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
