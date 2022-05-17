@@ -16,10 +16,26 @@ import android.widget.Toast;
 import com.google.android.material.button.MaterialButton;
 import com.vishnusivadas.advanced_httpurlconnection.PutData;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedInputStream;
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
 
 
 public class MainActivity extends AppCompatActivity {
+
+    String urladdress = Config.showURL + "getProfileID.php";
+    String[] Userid;
+    String[] Username;
+    BufferedInputStream is;
+    String line = null;
+    String result = null;
 
     final String FIELDS = "Field creation/modified";
     final String LOGINREQG = "Request sent";
@@ -28,12 +44,18 @@ public class MainActivity extends AppCompatActivity {
     final String GOODCRED = "Good credentials";
     final String BTNS = "Buttons created";
     final String TOREGIST = "Move to register";
+    final String BADREQ = "Bad request handled";
+    final String FETCHG = "Fetch request good";
+    final String FETCHB = "Fetch request failed";
+    final String GETREQ = "Get request started";
+    final String BADGETREQ = "Get request failed";
+    final String JSONENCODE = "Json encoded succesfuly";
+    final String JSONFAIL = "Failed the encoding";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
 
         TextView username =(TextView) findViewById(R.id.p_username);
         Log.i("com.movies.MainActivity","username created");
@@ -51,7 +73,6 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        //admin
 
         loginbtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,11 +100,14 @@ public class MainActivity extends AppCompatActivity {
                                 if (putData.onComplete()) {
                                     String result = putData.getResult();
                                     if (result.equals("Login Success")){
+                                        User.username = username;
+                                        User.password = passwd;
                                         Toast.makeText(getApplicationContext(),result,Toast.LENGTH_SHORT).show();
                                         Intent intent = new Intent(getApplicationContext(), Main_menu.class);
                                         startActivity(intent);
                                         finish();
                                         Log.i(GOODCRED,"Login successfull");
+
                                     }
                                     else {
                                         Toast.makeText(getApplicationContext(), result,Toast.LENGTH_SHORT).show();
@@ -116,4 +140,5 @@ public class MainActivity extends AppCompatActivity {
             e.printStackTrace();
         }
     }
+
 }
