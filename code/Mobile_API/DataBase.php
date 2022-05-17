@@ -94,18 +94,6 @@ class DataBase
         } else return false;
     }
 
-    function showMovie($movie_studio, $movie_category, $movie_name, $movie_length )
-    {
-        $movie_studio = $this->prepareData($movie_studio);
-        $movie_category = $this->prepareData($movie_category);
-        $movie_name = $this->prepareData($movie_name);
-        $movie_length = $this->prepareData($movie_length);
-        $this->sql = 
-            "SELECT (id,movie_studio,movie_category,movie_name, movie_length) FROM movie";
-        if (mysqli_query($this->connect, $this->sql)){
-            return true;
-        } else return false;
-    }
 
     function addActor($table, $name, $age, $gender)
     {

@@ -1,12 +1,30 @@
 <?php
-require "DataBase.php";
-$db = new DataBase();
-if (isset($_POST['username']) && isset($_POST['passwd'])) {
-    if ($db->dbConnect()) {
-        if ($db->getProfile("user", $_POST['username'], $_POST['passwd'])) {
-            echo "Get datas successfull";
-        } else echo "Username or Password wrong";
-    } else echo "Error: Database connection";
-} else echo "All fields are required";
-?>
 
+$host='localhost';
+$username='root';
+$pwd='';
+$db='movies';
+
+$con=mysqli_connect($host,$username,$pwd,$db) or die('Unable to connect');
+
+if(mysqli_connect_error())
+{
+    echo "Failed to connect";
+}
+
+
+
+
+$query=mysqli_query($con,"SELECT id, username, first_name, last_name, email from user");
+
+if($query)
+{
+    while($row=mysqli_fetch_array($query))
+    {
+        $flag[] =$row;
+    }
+    print(json_encode($flag));
+}
+
+mysqli_close($con);
+?>
