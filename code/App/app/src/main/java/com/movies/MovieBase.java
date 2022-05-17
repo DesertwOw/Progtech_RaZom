@@ -13,4 +13,5 @@ public abstract class MovieBase {
     public abstract String getName();
 
     public abstract int getLength();
+
 }

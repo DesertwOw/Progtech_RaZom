@@ -149,7 +149,7 @@ public class Movies extends AppCompatActivity implements AdapterView.OnItemSelec
                                 data[1] = category_spinner.getSelectedItem().toString();
                                 data[2] = movieName.getText().toString();
                                 data[3] = length.getText().toString();
-                                PutData putData = new PutData("http://192.168.1.199/Mobile_API/Add_movie.php", "POST", field, data);
+                                PutData putData = new PutData(Config.showURL + "Add_movie.php", "POST", field, data);
                                 Log.i(GOODREQ,"Good request handled to the server");
                                 //cmd -> ipconfig -> ipv4 address
                                 if (putData.startPut()) {
@@ -157,7 +157,7 @@ public class Movies extends AppCompatActivity implements AdapterView.OnItemSelec
                                         String result = putData.getResult();
                                         if (result.equals("Movie addded successfully")){
                                             Toast.makeText(getApplicationContext(),result,Toast.LENGTH_SHORT).show();
-                                            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                                            Intent intent = new Intent(getApplicationContext(), Main_menu.class);
                                             startActivity(intent);
                                             finish();
                                             Log.i(GOODUPLOAD,"Data uploaded successfully!");
