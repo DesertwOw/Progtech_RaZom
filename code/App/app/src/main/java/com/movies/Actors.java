@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.StrictMode;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -59,6 +60,7 @@ public class Actors extends AppCompatActivity implements AdapterView.OnItemSelec
         Log.i(PlAYEDROLESPIN,"Played_role spinner set up successfully");
 
         //TODO Movie neveket arrayba szedni is a spinner listával kiiratni
+
         for (int i = 0; i < Container.Movies.size(); i++){
             String name = Container.Movies.get(i).getName();
             m.add(name);

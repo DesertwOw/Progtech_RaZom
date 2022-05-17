@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.StrictMode;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -40,7 +41,8 @@ public class Directors extends AppCompatActivity implements AdapterView.OnItemSe
         setContentView(R.layout.activity_director);
 
         TextView directorName = (TextView) findViewById(R.id.directorname);
-        //TODO Movie neveket arrayba szedni is a spinner listával kiiratni
+
+
         for (int i = 0; i < Container.Movies.size(); i++){
             String name = Container.Movies.get(i).getName();
             m.add(name);
