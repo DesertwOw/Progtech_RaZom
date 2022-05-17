@@ -30,7 +30,7 @@ import java.util.List;
 
 public class Listed_movies_from_database extends AppCompatActivity {
 
-    String urladdress = "http://192.168.1.199/Mobile_API/fetch_movie.php";
+    String urladdress = Config.showURL + "fetch_movie.php";
     String[] movie_studio;
     String[] movie_category;
     String[] movie_name;
