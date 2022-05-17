@@ -8,6 +8,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import android.content.Intent;
 import android.media.Image;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
@@ -27,6 +28,9 @@ public class Main_menu extends AppCompatActivity {
         setContentView(R.layout.activity_main_menu);
         Log.i(ActivityLoad,"Main menu loaded Successfully");
 
+        StrictMode.setThreadPolicy((new StrictMode.ThreadPolicy.Builder().permitNetwork().build()));
+        Container.collectData();
+        Container.fillContainer();
         final DrawerLayout drawerLayout = findViewById(R.id.drawerLayout);
 
         Log.i(DrawerLayoutLoad,"Drawer loaded Successfully");
