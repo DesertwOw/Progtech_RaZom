@@ -18,9 +18,8 @@
             android:exported="false" />
 
         <activity
-            android:name=".Director"
-            android:exported="false"
-            tools:ignore="Instantiatable" />
+            android:name=".Directors"
+            android:exported="false" />
 
         <activity
             android:name=".Actors"
