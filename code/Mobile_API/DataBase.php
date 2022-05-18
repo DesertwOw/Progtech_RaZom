@@ -117,6 +117,29 @@ class DataBase
         } else return false;
     }
 
+    function addActInMovie($table, $actorid, $movieid,  $playrole)
+    {
+        $actorid = $this->prepareData($actorid);
+        $movieid = $this->prepareData($movieid);
+        $playrole = $this->prepareData($playrole);
+        $this->sql =
+            "INSERT INTO " . $table . " (actor_id, movie_id, played_role) VALUES ('" . $actorid . "','" . $movieid . "','" . $playrole . "')";
+        if (mysqli_query($this->connect, $this->sql)) {
+            return true;
+        } else return false;
+    }
+
+    function addDirectionMovie($table, $dirid, $movieid)
+    {
+        $dirid = $this->prepareData($dirid);
+        $movieid = $this->prepareData($movieid);
+        $this->sql =
+            "INSERT INTO " . $table . " (dir_id, movie_id) VALUES ('" . $dirid . "','" . $movieid . "')";
+        if (mysqli_query($this->connect, $this->sql)) {
+            return true;
+        } else return false;
+    }
+
 }
 
 ?>
