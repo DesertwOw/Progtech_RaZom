@@ -16,15 +16,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Container {
-    //TODO minden indításnál feltölteni az adatbázisból
+
     protected static List<MovieBase> Movies = new ArrayList<MovieBase>();
 
-    static String urladdress = "http://192.168.0.171/Mobile_API/fetch_movie.php";
+    static String urladdress = Config.showURL + "fetch_movie.php";
     static String[] movie_studio;
     static String[] movie_category;
     static String[] movie_name;
     static String[] movie_length;
-    static ListView listView;
     static BufferedInputStream is;
     static String line = null;
     static String result = null;
@@ -33,7 +32,6 @@ public class Container {
     static final String FETCHB = "Fetch request failed";
     static final String GETREQ = "Get request started";
     static final String BADGETREQ = "Get request failed";
-    static final String LISTVIEW = "List view created";
     static final String JSONENCODE = "Json encoded succesfuly";
     static final String JSONFAIL = "Failed the encoding";
 
@@ -89,12 +87,8 @@ public class Container {
         }
     }
 
-    protected static void fillContainer(){
+    protected static void fillContainer(String studio, String title, String category, String lenght){
         Movies.clear();
-        String studio;
-        String title;
-        String category;
-        String lenght;
         for (int i = 0; i < movie_studio.length; i++){
             studio = movie_studio[i];
             category = movie_category[i];
