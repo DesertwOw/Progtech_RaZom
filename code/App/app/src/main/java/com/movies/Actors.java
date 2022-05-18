@@ -59,8 +59,6 @@ public class Actors extends AppCompatActivity implements AdapterView.OnItemSelec
         Log.i(ACTORSLAYOUT,"Actors layout set up successfully");
         Log.i(PlAYEDROLESPIN,"Played_role spinner set up successfully");
 
-        //TODO Movie neveket arrayba szedni is a spinner listával kiiratni
-
         for (int i = 0; i < Container.Movies.size(); i++){
             String name = Container.Movies.get(i).getName();
             m.add(name);
@@ -114,45 +112,7 @@ public class Actors extends AppCompatActivity implements AdapterView.OnItemSelec
                         Container.Movies.set(i, actor);
                     }
                 }
-                if(!name.equals("") && !age.equals("") && !gender.equals("") && (isNumeric(age) && Integer.parseInt(age) > 0)) {
-                    Handler handler = new Handler();
-                    handler.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            String[] field = new String[3];
-                            field[0] = "name";
-                            field[1] = "age";
-                            field[2] = "gender";
-                            String[] data = new String[3];
-                            data[0] = name;
-                            data[1] = age;
-                            data[2] = gender;
-                            PutData putData = new PutData(Config.showURL + "addActor.php", "POST", field, data);
-                            Log.i(GOODREQ,"Request to the server is good");
-                            //cmd -> ipconfig -> ipv4 address
-                            if (putData.startPut()) {
-                                if (putData.onComplete()) {
-                                    String result = putData.getResult();
-                                    if (result.equals("Actor added Success")){
-                                        Toast.makeText(getApplicationContext(),result,Toast.LENGTH_SHORT).show();
-                                        Intent intent = new Intent(getApplicationContext(), Main_menu.class);
-                                        startActivity(intent);
-                                        finish();
-                                        Log.i(UPLOADFUNCTION,"Upload function is working properly");
-                                    }
-                                    else {
-                                        Toast.makeText(getApplicationContext(), result,Toast.LENGTH_SHORT).show();
-                                        Log.e(UPLOADERROR,"Upload function encountered errors");
-                                    }
-                                }
-                            }
-                        }
-                    });
-                }
-                else {
-                    Toast.makeText(getApplicationContext(),"All fields are required! Age has to be a number", Toast.LENGTH_SHORT).show();
-                    Log.e(BADREQ,"Bad request handled to the server");
-                }
+                AddActor(name, age, gender);
 
             }
         });
@@ -172,6 +132,48 @@ public class Actors extends AppCompatActivity implements AdapterView.OnItemSelec
 
     private static boolean isNumeric(String str){
         return str != null && str.matches("[0-9.]+");
+    }
+
+    public void AddActor(String name, String age, String gender){
+        if(!name.equals("") && !age.equals("") && !gender.equals("") && (isNumeric(age) && Integer.parseInt(age) > 0)) {
+            Handler handler = new Handler();
+            handler.post(new Runnable() {
+                @Override
+                public void run() {
+                    String[] field = new String[3];
+                    field[0] = "name";
+                    field[1] = "age";
+                    field[2] = "gender";
+                    String[] data = new String[3];
+                    data[0] = name;
+                    data[1] = age;
+                    data[2] = gender;
+                    PutData putData = new PutData(Config.showURL + "addActor.php", "POST", field, data);
+                    Log.i(GOODREQ,"Request to the server is good");
+                    //cmd -> ipconfig -> ipv4 address
+                    if (putData.startPut()) {
+                        if (putData.onComplete()) {
+                            String result = putData.getResult();
+                            if (result.equals("Actor added Success")){
+                                Toast.makeText(getApplicationContext(),result,Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(getApplicationContext(), Main_menu.class);
+                                startActivity(intent);
+                                finish();
+                                Log.i(UPLOADFUNCTION,"Upload function is working properly");
+                            }
+                            else {
+                                Toast.makeText(getApplicationContext(), result,Toast.LENGTH_SHORT).show();
+                                Log.e(UPLOADERROR,"Upload function encountered errors");
+                            }
+                        }
+                    }
+                }
+            });
+        }
+        else {
+            Toast.makeText(getApplicationContext(),"All fields are required! Age has to be a number", Toast.LENGTH_SHORT).show();
+            Log.e(BADREQ,"Bad request handled to the server");
+        }
     }
 }
 

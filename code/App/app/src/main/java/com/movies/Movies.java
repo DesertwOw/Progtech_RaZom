@@ -134,44 +134,8 @@ public class Movies extends AppCompatActivity implements AdapterView.OnItemSelec
                             Log.i(MOVIECREATED, "Movie created by the given data");
                         }
                     }
-                    if(!movieName.equals("") && !length.equals("")) {
-                        Handler handler = new Handler();
-                        handler.post(new Runnable() {
-                            @Override
-                            public void run() {
-                                String[] field = new String[4];
-                                field[0] = "movie_studio";
-                                field[1] = "movie_category";
-                                field[2] = "movie_name";
-                                field[3] = "movie_length";
-                                String[] data = new String[4];
-                                data[0] = studio_spinner.getSelectedItem().toString();
-                                data[1] = category_spinner.getSelectedItem().toString();
-                                data[2] = movieName.getText().toString();
-                                data[3] = length.getText().toString();
-                                PutData putData = new PutData(Config.showURL + "Add_movie.php", "POST", field, data);
-                                Log.i(GOODREQ,"Good request handled to the server");
-                                //cmd -> ipconfig -> ipv4 address
-                                if (putData.startPut()) {
-                                    if (putData.onComplete()) {
-                                        String result = putData.getResult();
-                                        if (result.equals("Movie addded successfully")){
-                                            Toast.makeText(getApplicationContext(),result,Toast.LENGTH_SHORT).show();
-                                            Intent intent = new Intent(getApplicationContext(), Main_menu.class);
-                                            startActivity(intent);
-                                            finish();
-                                            Log.i(GOODUPLOAD,"Data uploaded successfully!");
-                                        }
-                                        else {
-                                            Toast.makeText(getApplicationContext(), result,Toast.LENGTH_SHORT).show();
-                                            Log.i(BADUPLOAD,"Data upload encountered some problems");
-                                        }
-                                    }
-                                }
-                            }
-                        });
-                        Log.i(BADREQ,"Bad request handled to the server");
-                    }
+                    AddMovie(studio_spinner.getSelectedItem().toString(), category_spinner.getSelectedItem().toString(), movieName.getText().toString(), length.getText().toString());
+
                 }
             });
     }
@@ -186,5 +150,46 @@ public class Movies extends AppCompatActivity implements AdapterView.OnItemSelec
     @Override
     public void onNothingSelected(AdapterView<?> adapterView) {
 
+    }
+
+    private void AddMovie(String studio, String category, String name, String lenght){
+        if(!name.equals("") && !lenght.equals("")) {
+            Handler handler = new Handler();
+            handler.post(new Runnable() {
+                @Override
+                public void run() {
+                    String[] field = new String[4];
+                    field[0] = "movie_studio";
+                    field[1] = "movie_category";
+                    field[2] = "movie_name";
+                    field[3] = "movie_length";
+                    String[] data = new String[4];
+                    data[0] = studio;
+                    data[1] = category;
+                    data[2] = name;
+                    data[3] = lenght;
+                    PutData putData = new PutData(Config.showURL + "Add_movie.php", "POST", field, data);
+                    Log.i(GOODREQ,"Good request handled to the server");
+                    //cmd -> ipconfig -> ipv4 address
+                    if (putData.startPut()) {
+                        if (putData.onComplete()) {
+                            String result = putData.getResult();
+                            if (result.equals("Movie addded successfully")){
+                                Toast.makeText(getApplicationContext(),result,Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(getApplicationContext(), Main_menu.class);
+                                startActivity(intent);
+                                finish();
+                                Log.i(GOODUPLOAD,"Data uploaded successfully!");
+                            }
+                            else {
+                                Toast.makeText(getApplicationContext(), result,Toast.LENGTH_SHORT).show();
+                                Log.i(BADUPLOAD,"Data upload encountered some problems");
+                            }
+                        }
+                    }
+                }
+            });
+            Log.i(BADREQ,"Bad request handled to the server");
+        }
     }
 }

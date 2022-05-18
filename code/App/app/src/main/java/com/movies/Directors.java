@@ -85,42 +85,7 @@ public class Directors extends AppCompatActivity implements AdapterView.OnItemSe
                         Container.Movies.set(i, director);
                     }
                 }
-                if(!name.equals("")) {
-                    Handler handler = new Handler();
-                    handler.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            String[] field = new String[1];
-                            field[0] = "name";
-                            String[] data = new String[1];
-                            data[0] = name;
-                            PutData putData = new PutData(Config.showURL + "addDirector.php", "POST", field, data);
-                            Log.i(GOODREQ,"Good request handled to the server");
-                            //cmd -> ipconfig -> ipv4 address
-                            if (putData.startPut()) {
-                                if (putData.onComplete()) {
-                                    String result = putData.getResult();
-                                    if (result.equals("Directors added Success")){
-                                        Toast.makeText(getApplicationContext(),result,Toast.LENGTH_SHORT).show();
-                                        Intent intent = new Intent(getApplicationContext(), Main_menu.class);
-                                        startActivity(intent);
-                                        finish();
-                                        Log.i(UPLOADGOOD,"Data uploaded successfully");
-                                    }
-                                    else {
-                                        Toast.makeText(getApplicationContext(), result,Toast.LENGTH_SHORT).show();
-                                        Log.e(UPLOADBAD,"Data upload failed");
-                                    }
-                                }
-                            }
-                        }
-                    });
-                }
-                else {
-                    Toast.makeText(getApplicationContext(),"All fields are required!", Toast.LENGTH_SHORT).show();
-                    Log.e(BADREQ,"Bad request handled to the server");
-                }
-
+                AddDirector(name);
             }
         });
     }
@@ -134,5 +99,43 @@ public class Directors extends AppCompatActivity implements AdapterView.OnItemSe
     @Override
     public void onNothingSelected(AdapterView<?> adapterView) {
 
+    }
+
+    private void AddDirector(String name){
+        if(!name.equals("")) {
+            Handler handler = new Handler();
+            handler.post(new Runnable() {
+                @Override
+                public void run() {
+                    String[] field = new String[1];
+                    field[0] = "name";
+                    String[] data = new String[1];
+                    data[0] = name;
+                    PutData putData = new PutData(Config.showURL + "addDirector.php", "POST", field, data);
+                    Log.i(GOODREQ,"Good request handled to the server");
+                    //cmd -> ipconfig -> ipv4 address
+                    if (putData.startPut()) {
+                        if (putData.onComplete()) {
+                            String result = putData.getResult();
+                            if (result.equals("Directors added Success")){
+                                Toast.makeText(getApplicationContext(),result,Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(getApplicationContext(), Main_menu.class);
+                                startActivity(intent);
+                                finish();
+                                Log.i(UPLOADGOOD,"Data uploaded successfully");
+                            }
+                            else {
+                                Toast.makeText(getApplicationContext(), result,Toast.LENGTH_SHORT).show();
+                                Log.e(UPLOADBAD,"Data upload failed");
+                            }
+                        }
+                    }
+                }
+            });
+        }
+        else {
+            Toast.makeText(getApplicationContext(),"All fields are required!", Toast.LENGTH_SHORT).show();
+            Log.e(BADREQ,"Bad request handled to the server");
+        }
     }
 }

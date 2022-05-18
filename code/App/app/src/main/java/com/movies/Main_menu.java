@@ -30,7 +30,11 @@ public class Main_menu extends AppCompatActivity {
 
         StrictMode.setThreadPolicy((new StrictMode.ThreadPolicy.Builder().permitNetwork().build()));
         Container.collectData();
-        Container.fillContainer();
+        String studio = null;
+        String title = null;
+        String category = null;
+        String length = null;
+        Container.fillContainer(studio, title,category, length);
         final DrawerLayout drawerLayout = findViewById(R.id.drawerLayout);
 
         Log.i(DrawerLayoutLoad,"Drawer loaded Successfully");
@@ -60,28 +64,28 @@ public class Main_menu extends AppCompatActivity {
                 }
                 else if(id == R.id.menuSettings){
                     Toast.makeText(Main_menu.this, "Settings", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(Main_menu.this, Settings.class); //TODO
+                    Intent intent = new Intent(Main_menu.this, Settings.class);
                     startActivity(intent);
                     finish();
 
                 }
                 else if(id == R.id.menuMovies){
                     Toast.makeText(Main_menu.this, "Movies", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(Main_menu.this, Movies.class); //TODO
+                    Intent intent = new Intent(Main_menu.this, Movies.class);
                     startActivity(intent);
                     finish();
 
                 }
                 else if(id == R.id.menuListMovies){
                     Toast.makeText(Main_menu.this, "Movies", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(Main_menu.this, Listed_movies_from_database.class); //TODO
+                    Intent intent = new Intent(Main_menu.this, Listed_movies_from_database.class);
                     startActivity(intent);
                     finish();
 
                 }
                 else if(id == R.id.menuStars) {
                     Toast.makeText(Main_menu.this, "Stars", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(Main_menu.this, Stars.class); //TODO
+                    Intent intent = new Intent(Main_menu.this, Stars.class);
                     startActivity(intent);
                     finish();
 
@@ -89,7 +93,7 @@ public class Main_menu extends AppCompatActivity {
 
                 else if(id == R.id.menuActors){
                     Toast.makeText(Main_menu.this, "Actors", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(Main_menu.this, Actors.class); //TODO
+                    Intent intent = new Intent(Main_menu.this, Actors.class);
                     startActivity(intent);
                     finish();
 
@@ -97,7 +101,7 @@ public class Main_menu extends AppCompatActivity {
 
                 else if(id == R.id.menuDirectors){
                     Toast.makeText(Main_menu.this, "Directros", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(Main_menu.this, Directors.class); //TODO
+                    Intent intent = new Intent(Main_menu.this, Directors.class);
                     startActivity(intent);
                     finish();
 
