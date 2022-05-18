@@ -20,6 +20,7 @@ public class Container {
     protected static List<MovieBase> Movies = new ArrayList<MovieBase>();
 
     static String urladdress = Config.showURL + "fetch_movie.php";
+    static String[] movie_id;
     static String[] movie_studio;
     static String[] movie_category;
     static String[] movie_name;
@@ -67,6 +68,7 @@ public class Container {
         try{
             JSONArray ja = new JSONArray(result);
             JSONObject jo = null;
+            movie_id = new String[ja.length()];
             movie_studio = new String[ja.length()];
             movie_category = new String[ja.length()];
             movie_name = new String[ja.length()];
@@ -74,6 +76,7 @@ public class Container {
 
             for(int i = 0; i<=ja.length(); i++){
                 jo = ja.getJSONObject(i);
+                movie_id[i] = jo.getString("movie_id");
                 movie_studio[i] = jo.getString("movie_studio");
                 movie_category[i] = jo.getString("movie_category");
                 movie_name[i] = jo.getString("movie_name");
