@@ -175,6 +175,13 @@ public class Actors extends AppCompatActivity implements AdapterView.OnItemSelec
             Log.e(BADREQ,"Bad request handled to the server");
         }
     }
+
+    @Override
+    public void onBackPressed() {
+        Intent backtomenu = new Intent(getApplicationContext(),Main_menu.class);
+        startActivity(backtomenu);
+        finish();
+    }
 }
 
 

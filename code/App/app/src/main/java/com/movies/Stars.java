@@ -32,4 +32,11 @@ public class Stars extends AppCompatActivity {
             }
         });
     }
+
+    @Override
+    public void onBackPressed() {
+        Intent backtomenu = new Intent(getApplicationContext(),Main_menu.class);
+        startActivity(backtomenu);
+        finish();
+    }
 }

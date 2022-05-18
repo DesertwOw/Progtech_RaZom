@@ -152,6 +152,13 @@ public class Movies extends AppCompatActivity implements AdapterView.OnItemSelec
 
     }
 
+    @Override
+    public void onBackPressed() {
+        Intent backtomenu = new Intent(getApplicationContext(),Main_menu.class);
+        startActivity(backtomenu);
+        finish();
+    }
+
     private void AddMovie(String studio, String category, String name, String lenght){
         if(!name.equals("") && !lenght.equals("")) {
             Handler handler = new Handler();

@@ -1,5 +1,6 @@
 package com.movies;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.StrictMode;
@@ -64,6 +65,13 @@ public class Listed_movies_from_database extends AppCompatActivity {
         CustomListView customListView = new CustomListView(this,movie_studio,movie_category,movie_name,movie_length);
         listView.setAdapter(customListView);
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent backtomenu = new Intent(getApplicationContext(),Main_menu.class);
+        startActivity(backtomenu);
+        finish();
     }
 
     private void collectData()
