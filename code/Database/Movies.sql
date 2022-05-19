@@ -27,23 +27,11 @@ Create table Played_role(
     FOREIGN KEY(movie_id) References Movie(movie_id) 
 );
 
-Create table Genres(
-    gen_id int AUTO_INCREMENT,
-    gen_title varchar(250) not null ,
-    PRIMARY KEY (gen_id)
-);
 
 Create table Director(
     director_id int AUTO_INCREMENT,
     director_name  varchar(250) not null,
     PRIMARY KEY(director_id)
-);
-
-Create table Movie_genres(
-    movie_id int,
-    gen_id int,
-    FOREIGN KEY(movie_id) References Movie(movie_id),
-    FOREIGN KEY(gen_id) References Genres(gen_id)
 );
 
 Create table Movie_direction(
@@ -53,19 +41,11 @@ Create table Movie_direction(
     FOREIGN KEY(movie_id) References Movie(movie_id)
 );
 
-Create table Reviewer(
-    rev_id int AUTO_INCREMENT,
-    rev_name varchar(250) not null,
-    PRIMARY KEY(rev_id)
-);
 
 Create table Rating(
     movie_id int,
-    rev_id int,
     rev_stars int not null,
-    num_o_ratings int not null,
-    FOREIGN KEY(movie_id) References Movie(movie_id),
-    FOREIGN KEY(rev_id) References Reviewer(rev_id)
+    FOREIGN KEY(movie_id) References Movie(movie_id)
 );
 
 
