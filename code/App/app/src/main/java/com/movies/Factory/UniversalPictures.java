@@ -1,4 +1,8 @@
-package com.movies;
+package com.movies.Factory;
+
+import com.movies.Factory.ActionMovie;
+import com.movies.Factory.ComedyMovie;
+import com.movies.Factory.Studio;
 
 public class UniversalPictures extends Studio {
 

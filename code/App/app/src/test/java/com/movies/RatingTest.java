@@ -1,6 +1,6 @@
 package com.movies;
 
-import static org.junit.Assert.*;
+import com.movies.Factory.ComedyMovie;
 
 import org.junit.Test;
 

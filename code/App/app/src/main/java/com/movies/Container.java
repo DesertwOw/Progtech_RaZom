@@ -1,7 +1,8 @@
 package com.movies;
 
 import android.util.Log;
-import android.widget.ListView;
+
+import com.movies.Factory.ActionMovie;
 
 import org.json.JSONArray;
 import org.json.JSONException;

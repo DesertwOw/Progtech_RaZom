@@ -67,6 +67,8 @@ public class Listed_movies_from_database extends AppCompatActivity {
         listView.setAdapter(customListView);
         ViewGroup headerView = (ViewGroup) getLayoutInflater().inflate(R.layout.header,listView,false);
         listView.addHeaderView(headerView);
+
+
     }
 
     @Override

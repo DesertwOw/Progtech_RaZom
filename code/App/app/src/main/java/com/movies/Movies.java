@@ -9,15 +9,17 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.button.MaterialButton;
+import com.movies.Factory.ActionMovie;
+import com.movies.Factory.ComedyMovie;
+import com.movies.Factory.Pixar;
+import com.movies.Factory.Studio;
+import com.movies.Factory.UniversalPictures;
 import com.vishnusivadas.advanced_httpurlconnection.PutData;
-
-import java.util.ArrayList;
 
 public class Movies extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
@@ -190,13 +192,13 @@ public class Movies extends AppCompatActivity implements AdapterView.OnItemSelec
                             }
                             else {
                                 Toast.makeText(getApplicationContext(), result,Toast.LENGTH_SHORT).show();
-                                Log.i(BADUPLOAD,"Data upload encountered some problems");
+                                Log.e(BADUPLOAD,"Data upload encountered some problems");
                             }
                         }
                     }
                 }
             });
-            Log.i(BADREQ,"Bad request handled to the server");
+            Log.e(BADREQ,"Bad request handled to the server");
         }
     }
 }

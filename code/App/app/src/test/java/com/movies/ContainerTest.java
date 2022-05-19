@@ -1,19 +1,9 @@
 package com.movies;
 
-import static org.junit.Assert.*;
+import com.movies.Factory.ActionMovie;
+import com.movies.Factory.ComedyMovie;
 
-import android.util.Log;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 import org.junit.Test;
-
-import java.io.BufferedInputStream;
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
 
 public class ContainerTest {
 

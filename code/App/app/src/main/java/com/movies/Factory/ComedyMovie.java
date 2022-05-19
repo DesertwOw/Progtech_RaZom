@@ -1,31 +1,23 @@
-package com.movies;
+package com.movies.Factory;
 
-import android.util.Log;
-import android.widget.Spinner;
+public class ComedyMovie extends Genres {
 
-import java.util.ArrayList;
-import java.util.List;
-
-public class ActionMovie extends Genres{
     private String studio;
     private String category;
     private String name;
     private int length;
 
-
-    public ActionMovie(String studio,String category, String name, int length){
+    public ComedyMovie(String studio, String category, String name, int length){
         this.studio = studio;
         this.category = category;
         this.name = name;
         this.length = length;
-
     }
 
     @Override
     public String getTitle() {
         return name;
     }
-
 
     @Override
     public String toString() {
@@ -35,6 +27,7 @@ public class ActionMovie extends Genres{
                 ", length='" + length + '\''+
                 '!';
     }
+
 
     @Override
     public String getStudio() {
