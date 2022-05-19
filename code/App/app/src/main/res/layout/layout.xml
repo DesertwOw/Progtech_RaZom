@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
 
 
     <TextView
@@ -10,46 +9,50 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
+        android:layout_marginStart="0dp"
         android:layout_marginLeft="26dp"
-        android:layout_marginStart="26dp"
-        android:layout_marginTop="16dp"
         android:textColor="#333"
-        android:textSize="22dp"/>
+        android:textSize="12dp" />
 
     <TextView
         android:id="@+id/studio_category"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_below="@id/movie_studio"
-        android:layout_marginLeft="26dp"
-        android:layout_marginStart="26dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="5dp"
+        android:layout_toRightOf="@id/movie_studio"
         android:textColor="#333"
-        android:textSize="22dp"
-        />
+        android:textSize="12dp" />
+
     <TextView
         android:id="@+id/movie_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/studio_category"
         android:layout_alignParentTop="true"
+        android:layout_marginStart="5dp"
         android:layout_marginLeft="26dp"
-        android:layout_below="@id/studio_category"
-        android:layout_marginStart="26dp"
-        android:layout_marginTop="16dp"
         android:textColor="#333"
-        android:textSize="22dp"
-        />
+        android:textSize="12dp" />
+
     <TextView
         android:id="@+id/movie_length"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/movie_name"
         android:layout_alignParentTop="true"
-        android:layout_below="@id/movie_name"
+        android:layout_marginStart="5dp"
         android:layout_marginLeft="26dp"
-        android:layout_marginStart="26dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="7dp"
         android:textColor="#333"
-        android:textSize="22dp"
+        android:textSize="12dp" />
+
+    <RatingBar
+        android:id="@+id/ratingBar"
+        android:layout_below="@id/studio_category"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         />
-</LinearLayout>
+
+</RelativeLayout>
+
