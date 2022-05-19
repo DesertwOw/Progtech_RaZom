@@ -6,6 +6,7 @@ import android.os.Handler;
 import android.os.StrictMode;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -64,7 +65,8 @@ public class Listed_movies_from_database extends AppCompatActivity {
         collectData();
         CustomListView customListView = new CustomListView(this,movie_studio,movie_category,movie_name,movie_length);
         listView.setAdapter(customListView);
-
+        ViewGroup headerView = (ViewGroup) getLayoutInflater().inflate(R.layout.header,listView,false);
+        listView.addHeaderView(headerView);
     }
 
     @Override
