@@ -140,6 +140,19 @@ class DataBase
         } else return false;
     }
 
+    function addRating($table, $movieid, $revid, $revstars, $numorating)
+    {
+        $movieid = $this->prepareData($movieid);
+        $revid = $this->prepareData($revid);
+        $revstars = $this->prepareData($revstars);  
+        $numorating = $this->prepareData($numorating);
+        $this->sql =
+            "INSERT INTO " . $table . " (movie_id, rev_id, rev_stars, num_o_ratings) VALUES ('" . $movieid . "','" . $revid . "','" . $revstars . "', '" . $numorating . "')";
+        if (mysqli_query($this->connect, $this->sql)) {
+            return true;
+        } else return false;
+    }
+
 }
 
 ?>
