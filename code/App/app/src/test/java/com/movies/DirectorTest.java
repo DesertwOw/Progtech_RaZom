@@ -17,6 +17,9 @@ public class DirectorTest {
         director.setDirector_name("George Lucas");
 
         System.out.println(director.getDirector_name() + " - " + director.getName() + " - " + director.getCategory() + " - " + director.getLength() + " - " + director.getStudio());
+        Directors dir = new Directors();
+        dir.AddDirector(director.getDirector_name());
+
     }
 
 }

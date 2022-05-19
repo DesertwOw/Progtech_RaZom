@@ -312,7 +312,6 @@ public class Actors extends AppCompatActivity implements AdapterView.OnItemSelec
 
     }
 
-
 }
 
 

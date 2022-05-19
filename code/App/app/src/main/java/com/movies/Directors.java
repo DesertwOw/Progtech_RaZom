@@ -131,7 +131,7 @@ public class Directors extends AppCompatActivity implements AdapterView.OnItemSe
 
     }
 
-    private void AddDirector(String name){
+    public void AddDirector(String name){
         if(!name.equals("")) {
             Handler handler = new Handler();
             handler.post(new Runnable() {
