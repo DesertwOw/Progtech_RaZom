@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.StrictMode;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -15,6 +14,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.button.MaterialButton;
+import com.movies.Decorators.Director;
+import com.movies.Decorators.MovieBase;
 import com.vishnusivadas.advanced_httpurlconnection.PutData;
 
 import org.json.JSONArray;
@@ -147,7 +148,7 @@ public class Directors extends AppCompatActivity implements AdapterView.OnItemSe
                     if (putData.startPut()) {
                         if (putData.onComplete()) {
                             String result = putData.getResult();
-                            if (result.equals("Directors added Success")){
+                            if (result.equals("Director added Success")){
                                 Toast.makeText(getApplicationContext(),result,Toast.LENGTH_SHORT).show();
                                 Log.i(UPLOADGOOD,"Data uploaded successfully");
                             }

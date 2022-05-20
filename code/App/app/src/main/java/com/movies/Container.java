@@ -2,6 +2,9 @@ package com.movies;
 
 import android.util.Log;
 
+import com.movies.Config;
+import com.movies.Decorators.MovieBase;
+import com.movies.Decorators.Rating;
 import com.movies.Factory.ActionMovie;
 
 import org.json.JSONArray;
@@ -26,6 +29,7 @@ public class Container {
     static String[] movie_category;
     static String[] movie_name;
     static String[] movie_length;
+    static String[] movie_rate;
     static BufferedInputStream is;
     static String line = null;
     static String result = null;
@@ -74,6 +78,7 @@ public class Container {
             movie_category = new String[ja.length()];
             movie_name = new String[ja.length()];
             movie_length = new String[ja.length()];
+            movie_rate = new String[ja.length()];
 
             for(int i = 0; i<=ja.length(); i++){
                 jo = ja.getJSONObject(i);
@@ -82,6 +87,7 @@ public class Container {
                 movie_category[i] = jo.getString("movie_category");
                 movie_name[i] = jo.getString("movie_name");
                 movie_length[i] = jo.getString("movie_length");
+                movie_rate[i] = jo.getString("movie_rate");
 
                 Log.i(JSONENCODE,"Data loaded");
             }
@@ -91,15 +97,18 @@ public class Container {
         }
     }
 
-    protected static void fillContainer(String studio, String title, String category, String lenght){
+    protected static void fillContainer(String studio, String title, String category, String lenght, String rate){
         Movies.clear();
         for (int i = 0; i < movie_studio.length; i++){
             studio = movie_studio[i];
             category = movie_category[i];
             title = movie_name[i];
             lenght = movie_length[i];
+            rate = movie_rate[i];
            ActionMovie temp = new ActionMovie(studio, category, title, Integer.parseInt(lenght));
-           Movies.add(temp);
+            Rating rateing = new Rating(temp);
+            rateing.setRate(Float.parseFloat(rate));
+           Movies.add(rateing);
         }
     }
 }

@@ -6,7 +6,6 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
-import android.media.Image;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.util.Log;
@@ -15,6 +14,8 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
+import com.movies.Pages.Listed_movies_from_database;
+import com.movies.Pages.Settings;
 
 public class Main_menu extends AppCompatActivity {
 
@@ -34,7 +35,8 @@ public class Main_menu extends AppCompatActivity {
         String title = null;
         String category = null;
         String length = null;
-        Container.fillContainer(studio, title,category, length);
+        String rate = null;
+        Container.fillContainer(studio, title,category, length, rate);
         final DrawerLayout drawerLayout = findViewById(R.id.drawerLayout);
 
         Log.i(DrawerLayoutLoad,"Drawer loaded Successfully");
@@ -79,13 +81,6 @@ public class Main_menu extends AppCompatActivity {
                 else if(id == R.id.menuListMovies){
                     Toast.makeText(Main_menu.this, "Movies", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(Main_menu.this, Listed_movies_from_database.class);
-                    startActivity(intent);
-                    finish();
-
-                }
-                else if(id == R.id.menuStars) {
-                    Toast.makeText(Main_menu.this, "Stars", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(Main_menu.this, Stars.class);
                     startActivity(intent);
                     finish();
 
