@@ -8,6 +8,7 @@ Create table Movie(
     movie_category varchar(250) not null,
     movie_name varchar(250) not null ,
     movie_length INT not null,
+    movie_rate FLOAT not null,
     PRIMARY KEY (movie_id)
 );
 
@@ -41,12 +42,6 @@ Create table Movie_direction(
     FOREIGN KEY(movie_id) References Movie(movie_id)
 );
 
-
-Create table Rating(
-    movie_id int,
-    rev_stars int not null,
-    FOREIGN KEY(movie_id) References Movie(movie_id)
-);
 
 
 Create table User(
