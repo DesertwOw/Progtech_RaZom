@@ -47,12 +47,18 @@
         android:textColor="#333"
         android:textSize="12dp" />
 
-    <RatingBar
-        android:id="@+id/ratingBar"
-        android:layout_below="@id/studio_category"
+    <TextView
+        android:id="@+id/movie_rate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        />
+        android:layout_toRightOf="@id/movie_length"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="26dp"
+        android:layout_marginTop="7dp"
+        android:textColor="#333"
+        android:textSize="12dp" />
+
 
 </RelativeLayout>
 

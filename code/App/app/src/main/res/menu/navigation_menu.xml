@@ -13,10 +13,6 @@
         android:id="@+id/menuMovies"
         android:icon="@drawable/movies"
         android:title="@string/Movies"/>
-    <item
-        android:id="@+id/menuStars"
-        android:icon="@drawable/stars"
-        android:title="@string/Stars"/>
 
     <item
         android:id="@+id/menuListMovies"
