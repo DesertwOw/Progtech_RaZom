@@ -1,5 +1,6 @@
 package com.movies;
 
+import com.movies.Decorators.Rating;
 import com.movies.Factory.ComedyMovie;
 
 import org.junit.Test;

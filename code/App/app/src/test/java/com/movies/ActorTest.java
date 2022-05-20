@@ -1,5 +1,8 @@
 package com.movies;
 
+import com.movies.Decorators.Actor;
+import com.movies.Enums.Gender;
+import com.movies.Enums.Movie_playedRole;
 import com.movies.Factory.ActionMovie;
 
 import org.junit.Test;

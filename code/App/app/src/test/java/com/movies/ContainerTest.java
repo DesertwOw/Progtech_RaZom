@@ -14,8 +14,9 @@ public class ContainerTest {
          String title = null;
          String category = null;
          String length = null;
+         String rate = null;
          Container.collectData();
-         Container.fillContainer(studio, title, category, length);
+         Container.fillContainer(studio, title, category, length, rate);
 
         for(int i = 0; i < Container.Movies.size(); i++){
             System.out.println(Container.Movies.get(i).toString());
