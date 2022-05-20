@@ -14,7 +14,7 @@
         android:theme="@style/Theme.Movies"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".Listed_movies_from_database"
+            android:name=".Pages.Listed_movies_from_database"
             android:exported="false" />
 
         <activity
@@ -25,13 +25,10 @@
             android:name=".Actors"
             android:exported="false" />
         <activity
-            android:name=".Stars"
-            android:exported="false" />
-        <activity
             android:name=".Movies"
             android:exported="false" />
         <activity
-            android:name=".Settings"
+            android:name=".Pages.Settings"
             android:exported="false" />
         <activity
             android:name=".Profile"
@@ -40,7 +37,7 @@
             android:name=".Main_menu"
             android:exported="false" />
         <activity
-            android:name=".Register"
+            android:name=".Pages.Register"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
